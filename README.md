@@ -148,7 +148,7 @@ STR r15 r14
 
 // Push character buffer
 LDI r15 buffer_chars
-STR r15 0
+STR r15 r0
 
 HLT
 ```
