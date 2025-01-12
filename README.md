@@ -56,7 +56,7 @@ Opcodes can be written as their 3-letter mnemonic
 
 Registers can be written as r0 through r15
 
-Immediates can be written in decimal or as binary/hex using the 0b/0x prefix 
+Immediates can be written in decimal or in binary/hex using the 0b/0x prefix 
 
 Zero flag true condition can be written as eq, =, z, zero \
 Zero flag false condition can be written as ne, !=, nz, notzero \
