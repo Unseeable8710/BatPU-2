@@ -1,4 +1,5 @@
 # BEFORE TRYING TO MAKE AND/OR RUN A PROGRAM, READ THIS WHOLE PAGE!
+
 DISCLAIMER: Basic assembly knowledge is assumed.
 
 >If you've never done assembly, you can learn online, learn from talking to people in my [discord](https://discord.gg/V5KFaF63mV), or you can watch my [video series](https://www.youtube.com/playlist?list=PL5LiOvrbVo8nPTtdXAdSmDWzu85zzdgRT) on this computer.
@@ -16,14 +17,14 @@ main.py - A script to convert .as files to .schem files (Using assembler.py, the
 
 To create a new program, simply create a text file, change the extension type to .as, and open the file with your favorite text editor.
 
-Programs are written in my custom assembly language, described by this [ISA](https://docs.google.com/spreadsheets/d/1Bj3wHV-JifR2vP4HRYoCWrdXYp3sGMG0Q58Nm56W4aI/edit?gid=0#gid=0). 
+Programs are written in my custom assembly language, described by this [ISA](https://docs.google.com/spreadsheets/d/1Bj3wHV-JifR2vP4HRYoCWrdXYp3sGMG0Q58Nm56W4aI/edit?gid=0#gid=0).
 **I recommend reading over it thoroughly before continuing.**
 
 ### Syntax
 
 Every instruction is written with an opcode followed by the operands. The order of operands remains exactly the same between assembly and machine code. For example, according to the ISA, the add instruction has opcode mnemonic ADD and operands Reg A, Reg B, Reg C. So,
 
-```ADD r1 r2 r3``` 
+```ADD r1 r2 r3```
 
 will compute r1 + r2 and put it into r3, as described by the pseudocode column.
 
@@ -31,7 +32,7 @@ will compute r1 + r2 and put it into r3, as described by the pseudocode column.
 
 Labels are supported. Labels must have a dot as the first character. Labels can be on their own line, or before an instruction on the same line. A label will always resolve to its absolute address, as all jumps are absolute.
 
-```
+```assembly
 LDI r1 10
 .loop // I'm a label on my own line
 DEC r1
@@ -44,7 +45,7 @@ JMP .loop
 
 Definitions of integer values are supported. Definitions are written with the following syntax:
 
-```
+```assembly
 define my_value 3
 ```
 
@@ -56,7 +57,7 @@ Opcodes can be written as their 3-letter mnemonic
 
 Registers can be written as r0 through r15
 
-Immediates can be written in decimal or in binary/hex using the 0b/0x prefix 
+Immediates can be written in decimal or in binary/hex using the 0b/0x prefix
 
 Zero flag true condition can be written as eq, =, z, zero \
 Zero flag false condition can be written as ne, !=, nz, notzero \
@@ -97,7 +98,7 @@ A python installation
 
 ### Speedup  Method #1 - Carpet Mod
 
-[Carpet](https://www.curseforge.com/minecraft/mc-mods/carpet) is a fabric mod that allows you to speed up the game. Vanilla minecraft runs at 20 game ticks per second, but running ```/tick rate [X]``` will change the speed to X game ticks per second instead. 
+[Carpet](https://www.curseforge.com/minecraft/mc-mods/carpet) is a fabric mod that allows you to speed up the game. Vanilla minecraft runs at 20 game ticks per second, but running ```/tick rate [X]``` will change the speed to X game ticks per second instead.
 
 500 is the maximum allowed tick rate, which results in a 25x speedup. This tick rate will execute 2.5 instructions per second rather than the vanilla 0.1 instructions per second.
 
@@ -116,8 +117,9 @@ A python installation
 
 ## Example programs
 
-Hello world! 
-```
+Hello world!
+
+```assembly
 // Clear character buffer
 LDI r15 clear_chars_buffer
 STR r15 r0
@@ -154,7 +156,8 @@ HLT
 ```
 
 Plot a single pixel
-```
+
+```assembly
 // r1 - X
 // r2 - Y
 
@@ -184,7 +187,7 @@ HLT
 
 Fill the screen using a nested for loop
 
-```
+```assembly
 // Useful ports
 LDI r12 pixel_x 
 LDI r13 pixel_y 
