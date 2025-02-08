@@ -2,34 +2,11 @@
 
 // Clear character buffer
 loadimm(15, clear_chars_buffer);
-STR r15 r0
+store(15, 0);
 
 // Write "HELLOWORLD"
-LDI r15 write_char
+loadimm(15, write_char);
 
-LDI r14 "H"
-STR r15 r14
-LDI r14 "E"
-STR r15 r14
-LDI r14 "L"
-STR r15 r14
-LDI r14 "L"
-STR r15 r14
-LDI r14 "O"
-STR r15 r14
-LDI r14 "W"
-STR r15 r14
-LDI r14 "O"
-STR r15 r14
-LDI r14 "R"
-STR r15 r14
-LDI r14 "L"
-STR r15 r14
-LDI r14 "D"
-STR r15 r14
+print("HELLOWORLD");
 
-// Push character buffer
-LDI r15 buffer_chars
-STR r15 r0
-
-HLT
+stop();
